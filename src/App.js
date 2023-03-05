@@ -1,25 +1,16 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [timelines, setTimelines] = useState([]);
+
+  useEffect(() => {
+    fetch('https://localhost:44355/api/v1/Timeline/all')
+      .then(response => response.json())
+      .then((entries) => setTimelines(entries));
+  }, []);
+
+  console.log(timelines);
 }
 
 export default App;
