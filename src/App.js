@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react'
+import { Routes, Route, Outlet } from 'react-router-dom';
 import './App.css';
+import Navigation from './routes/navigation/navigation.component'
+import Home from './routes/home/home.component'
 
 const App = () => {
-  const [timelines, setTimelines] = useState([]);
-
-  useEffect(() => {
-    fetch('https://localhost:44355/api/v1/Timeline/all')
-      .then(response => response.json())
-      .then((entries) => setTimelines(entries));
-  }, []);
-
-  console.log(timelines);
-}
+  return (
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
+  );
+};
 
 export default App;
