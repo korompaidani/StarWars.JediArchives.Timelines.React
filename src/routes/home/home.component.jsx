@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import OpenAi from './../../components/openai/openai.componenct'
 
 const Home = () => {
     const [timelines, setTimelines] = useState([]);
@@ -13,7 +14,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1>This is the Home</h1>
+            <OpenAi />
         </div>
     );
 };
