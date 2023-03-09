@@ -5,7 +5,7 @@ import './navigation.styles.scss';
 const Navigation = () => {
     return (
         <Fragment>
-            <h1>This is the navigation</h1>
+            <h1>Jedi Archives - Timelines</h1>
             <Outlet />
         </Fragment>
     )

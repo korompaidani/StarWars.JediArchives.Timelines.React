@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
-import OpenAi from './../../components/openai/openai.componenct'
+import {Outlet} from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Directory from './../../components/directory/directory.component.jsx';
 
 const Home = () => {
     const [timelines, setTimelines] = useState([]);
@@ -9,12 +10,10 @@ const Home = () => {
             .then(response => response.json())
             .then((entries) => setTimelines(entries));
     }, []);
-
-    console.log(timelines);
-
     return (
         <div>
-            <OpenAi />
+            <Outlet/>
+            <Directory timelines={timelines} />
         </div>
     );
 };
